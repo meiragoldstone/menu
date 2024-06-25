@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import About from './Pages/About';
 import Add from './Pages/Add';
@@ -7,10 +7,11 @@ import Delete from './Pages/Delete';
 import Retrieve from './Pages/Retrieve';
 import Update from './Pages/Update';
 import Layout from './Layout/Layout';
-import ReactDOM from "react-dom/client";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+  
   return (
     <BrowserRouter className = "App">
     <Routes>
@@ -21,6 +22,7 @@ function App() {
         <Route path="Add" element={<Add />} />
         <Route path="Update" element={<Update />} />
         <Route path="About" element={<About />} />
+
       </Route>
     </Routes>
   </BrowserRouter>
