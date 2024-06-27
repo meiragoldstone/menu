@@ -5,7 +5,7 @@ import './Add.css'
 const MenuList = () => {
     const [menus, setMenus] = useState([]);
     const [menuName, setMenuName] = useState('');
-    const [menuDescription, setMenuDescription] = useState([])
+    const [menuDescription, setMenuDescription] = useState([]);
 
     const handleNameChange = (e) => {
         setMenuName(e.target.value);
@@ -73,4 +73,4 @@ const MenuList = () => {
         );  
     };
 
-    export default MenuList;
+export default MenuList;
