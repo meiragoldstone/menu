@@ -1,50 +1,69 @@
-import {Container, Button } from 'react-bootstrap';
+import { Container, Button, Card, Image } from 'react-bootstrap';
 import './Home.css';
+const picture1 = require('../images/food1.jpg');
+const picture2 = require('../images/food3.jpg');
+const picture3 = require('../images/food2.jpg');
+const picture4 = require('../images/Rosemary.png');
+const picture5 = require('../images/food5.jpg');
 
-export default function Home(){
-    return(
-            <Container className = "home-container mt-5">
-                <div className = "text-center">
-                    <h1 className = "display-4">Welcome to Team Menu App</h1>
-                    <p className = "lead">
-                        Create and store your menus with ease. For any occasion, we have you covered.
-                    </p>
 
-                    <div className = "btn-row">
-                        <Button variant ="custom" className = "custom-btn" href = "/Add">
-                            Add a Menu
-                        </Button>
-                        <Button variant ="custom" className = "custom-btn" href = "/Update">
-                            Edit a Menu
-                        </Button>
-                        <Button variant ="custom" className = "custom-btn" href = "/Delete">
-                            Delete a Menu
-                        </Button>
-                        <Button variant ="custom" className = "custom-btn" href = "/Retrieve">
-                            View a Menu
-                        </Button>
+export default function Home() {
+    return (
+     
+        <Container className="home-container" >
+            <div>
+                <div className='image-container'>
+                    <Image src={picture4} alt="Description"/>
                     </div>
-
-                </div>
-               
-                <hr className = "my-4"/>
-
-                <div className = "feature-section">
-                    <div className = "row">
-                        <div className = "col-md-6">
-                            <h2 id = "create-menu">Create Your Menu</h2>
-                            <p>
-                                Easily create and customize menus for all different needs. Save, manage, and edit them effortlessly.
-                            </p>
-                        </div>
-                        <div className = "col-md-6">
-                            <h2>Store your Menus</h2>
-                            <p>
-                                Securely store all your created menus. Access them anytime, anywhere, and make updates as needed.
-                            </p>
-                        </div>
+                <div className="card-container">
+                    <div className="btn-row">
+                        <Card style={{ width: '14rem' }}>
+                            <Card.Img className="card-img" variant="top" src={picture1} />
+                            <Card.Body>
+                                <Card.Title>Create a Menu</Card.Title>
+                                <Card.Text>
+                                    Create a menu for any occassion and have it safely stored here for whenever your ready for it
+                                </Card.Text>
+                                <Button variant="custom" className="custom-btn" href="/Add">Create</Button>
+                            </Card.Body>
+                        </Card>
+                        <Card style={{ width: '14rem' }}>
+                            <Card.Img className="card-img" variant="top" src={picture2} />
+                            <Card.Body>
+                                <Card.Title>Update a Menu</Card.Title>
+                                <Card.Text>
+                                    Update an existing menu by switching an item with another or editing an specific item
+                                </Card.Text>
+                                <Button variant="custom" className="custom-btn" href="/Update">Update</Button>
+                            </Card.Body>
+                        </Card>
+                        <Card style={{ width: '14rem' }}>
+                            <Card.Img className="card-img" variant="top" src={picture3} />
+                            <Card.Body>
+                                <Card.Title>Delete a Menu</Card.Title>
+                                <Card.Text>
+                                    When finished with your menu easily delete the used menu so you can focus on future meals
+                                </Card.Text>
+                                <Button variant="custom" className="custom-btn" href="/Delete">Delete</Button>
+                            </Card.Body>
+                        </Card>
+                        <Card style={{ width: '14rem' }}>
+                            <Card.Img className="card-img" variant="top" src={picture5} />
+                            <Card.Body>
+                                <Card.Title>Retrieve a Menu</Card.Title>
+                                <Card.Text>
+                                    Retrieve a menu to review your choices, check your ingredients and start cooking
+                                </Card.Text>
+                                <Button variant="custom" className="custom-btn" href="/Retrieve">Retrieve</Button>
+                            </Card.Body>
+                        </Card>
                     </div>
                 </div>
-            </Container>        
+
+            </div>
+
+            <hr className="my-4" />
+
+        </Container>
     );
 };

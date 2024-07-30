@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, ListGroup } from 'react-bootstrap';
 import './Add.css';
-
+const picture = require('../images/plant1.jpg');
 const MenuList = () => {
     const [menus, setMenus] = useState([]);
     const [menuName, setMenuName] = useState('');
@@ -58,17 +58,19 @@ const MenuList = () => {
     };
 
     return (                                                
-        <Container>
-            <h1 className="mt-4">Add a New Menu</h1>
+        <Container style = {{backgroundImage: `url(${picture})`, backgroundSize: 'cover', 
+        backgroundPosition: 'center',backgroundRepeat: 'no-repeat'}}>
+            <h1 className="mt-4" style ={{color: '#025B4B'}}>Add a New Menu</h1>
 
             {error && <div className="alert alert-danger">{error}</div>}
-            <Form.Group>
+            <Form.Group style={{alignItems: 'left'}}>
                 <Form.Label>Your Name</Form.Label>
                 <Form.Control
                     type="text"
                     placeholder="Enter Your Name"
                     value={userName}
                     onChange={handleUserNameChange}
+                    style = {{width: '50%'}}
                 />
             </Form.Group>
             <Form className="mt-4">
@@ -79,6 +81,7 @@ const MenuList = () => {
                         placeholder="Enter the Name of Your Menu"
                         value={menuName}
                         onChange={handleNameChange}
+                        style = {{width: '50%'}}
                     />
                 </Form.Group>
                 <Form.Group>
@@ -89,6 +92,7 @@ const MenuList = () => {
                         placeholder="Enter Each Item Followed by the Enter Key"
                         value={menuDescription.join('\n')}
                         onChange={handleDescriptionChange}
+                        style = {{width: '50%'}}
                     />
                 </Form.Group>
 

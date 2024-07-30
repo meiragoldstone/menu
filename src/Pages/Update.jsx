@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState, useEffect } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 export default function Update() {
 
@@ -15,6 +15,7 @@ export default function Update() {
     const [itemToUpdate, setItemToUpdate] = useState('');
 
     const [textInput, setTextInput] = useState("");
+    const picture = require('../images/plant3.jpg');
 
 
     useEffect(() => {
@@ -106,14 +107,15 @@ export default function Update() {
 
     return (
         <>
-
-            <h1 className="text-center mt-4">Update Menu Items </h1>
+        <Container style = {{backgroundImage: `url(${picture})`, backgroundSize: 'cover', 
+        backgroundPosition: 'center',backgroundRepeat: 'no-repeat', height: '550px'}}>
+            <h1 className="text-center mt-4" style = {{color:  '#025B4B'}}>Update Menu Items </h1>
             <div className="d-flex justify-content-center">
                 <Form>
                     <Form.Select
-                        value={selectedMenu}
+                        value={selectedMenu ? selectedMenu.pk : ''}
                         onChange={handleMenuChange}
-                    >   <option>Select a Menu</option>
+                    >   <option value="">Select a Menu</option>
                         {menus.map((menu, index) => (
                             <option key={index} value={menu.pk}>
                                 {menu.pk}
@@ -137,6 +139,7 @@ export default function Update() {
                                 onClick={() => toggleForm(selectedMenu.menuItems[key], key)}
                                 variant="info"
                                 key={key}
+                                style = {{backgroundColor:  '#025B4B', color: 'white', border:'#025B4B' }}
                             >
                                 {selectedMenu.menuItems[key]}
                             </Button>
@@ -163,9 +166,10 @@ export default function Update() {
                     </div>
                 </div>
             )};
-
+    </Container>
 
         </>
+
 
     );
 

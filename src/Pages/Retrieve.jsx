@@ -6,6 +6,7 @@ export default function Retrieve() {
     const [menus, setMenus] = useState([]); // State for storing all menus
     const [selectedMenu, setSelectedMenu] = useState(null); // State for storing the selected menu
     const [menuItems1, setMenuItems1] = useState([]); // State for storing menu items of the selected menu
+    const picture = require('../images/marble.jpg');
 
     useEffect(() => {
         const fetchMenus = async () => {
@@ -46,12 +47,13 @@ export default function Retrieve() {
     };
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-4" style = {{backgroundImage: `url(${picture})`, backgroundSize: 'cover', 
+        backgroundPosition: 'center',backgroundRepeat: 'no-repeat' , height: '550px'}}>
             <div className="row justify-content-center">
                 <div className="col-lg-6">
-                    <h1 className="text-center mb-4">View Your Menu</h1>
+                    <h1 className="text-center mb-4" style = {{color: '#025B4B'}}>Retrieve Your Menu</h1>
                     <Form>
-                        <Form.Select
+                        <Form.Select 
                             value={selectedMenu ? selectedMenu.pk : ''} // Setting value of the select input based on selectedMenu state
                             onChange={handleMenuChange} // Calling handleMenuChange on select change
                         >
@@ -67,8 +69,8 @@ export default function Retrieve() {
             </div>
 
             {/* Displaying selected menu details */}
-            <div className="row justify-content-center mt-4">
-                <div className="col-lg-8">
+            <div className="row justify-content-center mt-4" style = {{backgroundColor: 'transparent'}}  >
+                <div className="col-lg-8" >
                     {!menuItems1 ? null : (
                         <ul className="list-group">
                             {/* Rendering details of the selected menu */}
