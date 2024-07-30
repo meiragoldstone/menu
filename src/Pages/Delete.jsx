@@ -3,7 +3,7 @@
 
 import React, { useState , useEffect } from 'react';
 import { Container, Button, Card, Row, Col} from 'react-bootstrap';
-
+const picture = require('../images/texture.jpg');
 
 export default function Delete() {
 
@@ -62,33 +62,36 @@ export default function Delete() {
 
     return (
         <>
-            <Container>
-                <Row>
+            <Container style = {{backgroundImage: `url(${picture})`, backgroundSize: 'cover', 
+        backgroundPosition: 'center',backgroundRepeat: 'no-repeat', maxWidth: '80%',
+        margin: '0 auto'}}>
+                <Row style ={{backgroundColor: 'transparent',border: 'none'}} >
                     <Col>
-                        <h1 className='mt-5'>Delete a menu</h1>
+                        <h1 className='mt-5' style = {{color: '#025B4B'}}>Delete a menu</h1>
                     </Col>
                 </Row>
                 <Row>
-                    <Card>
+                    <Card style ={{backgroundColor: 'transparent',border: 'none'}}>
                         <Card.Body>
                             <ul>
                                 {menuList.map((menu) => (
-                                    <li key={menu}>
-                                        <Row>
-                                            <Col>
-                                                <span>{menu}</span>
+                                     
+                                        <Row className="align-items-center mb-2">
+                                            <Col xs={8} className="d-flex justify-content-between align-items-center">
+                                                <span style = {{color:'#025B4B', fontWeight: 'bold', fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'  }}>{menu}</span>
                                             </Col>
-                                            <Col>
+                                           
                                                 <Button
                                                     className="m-2"
                                                     variant="danger"
                                                     onClick={() => deleteMenu(menu)}
+                                                    style = {{backgroundColor:'#025B4B', borderColor: '#025B4B' ,width: '35%'}}
                                                 >
                                                     Delete
                                                 </Button>
-                                            </Col>
+                                            
                                         </Row>
-                                    </li>
+                                   
                                 ))}
                             </ul>
                         </Card.Body>

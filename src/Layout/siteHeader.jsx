@@ -6,9 +6,9 @@ export default function SiteHeader() {
   return (
    <>
         <Nav 
-        style={{backgroundColor: "Black", fontSize: 25, fontFamily: "monospace", }}
+        style={{backgroundColor: '#025B4B', fontSize: 25, fontFamily:'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' }}
         justify variant="tabs" defaultActiveKey="/home">
-            <Nav.Item className="text-white-50 bg-dark">
+            <Nav.Item className="text-white-50">
                 <Nav.Link href="/" style={{color:"white"}}>Home</Nav.Link>
             </Nav.Item>
             <Nav.Item>
