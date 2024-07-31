@@ -62,39 +62,58 @@ export default function Delete() {
 
     return (
         <>
-            <Container style = {{backgroundImage: `url(${picture})`, backgroundSize: 'cover', 
+     
+        <Container style = {{backgroundImage: `url(${picture})`, backgroundSize: 'cover', 
         backgroundPosition: 'center',backgroundRepeat: 'no-repeat', maxWidth: '80%',
         margin: '0 auto'}}>
                 <Row style ={{backgroundColor: 'transparent',border: 'none'}} >
                     <Col>
-                        <h1 className='mt-5' style = {{color: '#025B4B'}}>Delete a menu</h1>
+                        <h1 className="text-center mt-4" style = {{color: '#025B4B'}}>Delete a menu</h1>
                     </Col>
                 </Row>
                 <Row>
                     <Card style ={{backgroundColor: 'transparent',border: 'none'}}>
-                        <Card.Body>
-                            <ul>
-                                {menuList.map((menu) => (
-                                     
-                                        <Row className="align-items-center mb-2">
-                                            <Col xs={8} className="d-flex justify-content-between align-items-center">
-                                                <span style = {{color:'#025B4B', fontWeight: 'bold', fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'  }}>{menu}</span>
-                                            </Col>
-                                           
-                                                <Button
-                                                    className="m-2"
-                                                    variant="danger"
-                                                    onClick={() => deleteMenu(menu)}
-                                                    style = {{backgroundColor:'#025B4B', borderColor: '#025B4B' ,width: '35%'}}
-                                                >
-                                                    Delete
-                                                </Button>
-                                            
-                                        </Row>
-                                   
-                                ))}
-                            </ul>
-                        </Card.Body>
+                    <Card.Body>
+                    <Row>
+                        {menuList.map((menu) => (
+                            <Col xs={12} sm={6} md={4} lg={3} key={menu} className="mb-3 d-flex flex-column align-items-center">
+                                <div
+                                    style={{
+                                        textAlign: 'center',
+                                        backgroundColor: '#f8f9fa',
+                                        padding: '10px',
+                                        borderRadius: '5px',
+                                        boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'space-between',
+                                        width: '200px',
+                                        height: '100px'
+                                    }}
+                                >
+                                    <span
+                                        style={{
+                                            color: '#025B4B',
+                                            fontWeight: 'bold',
+                                            display: 'block',
+                                            marginBottom: '10px',
+                                            fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                                        }}
+                                    >
+                                        {menu}
+                                    </span>
+                                    <Button
+                                        variant="danger"
+                                        onClick={() => deleteMenu(menu)}
+                                        style={{ backgroundColor: '#025B4B', borderColor: '#025B4B', width: '100%' }}
+                                    >
+                                        Delete
+                                    </Button>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+                </Card.Body>
                     </Card>
                 </Row>
             </Container>
