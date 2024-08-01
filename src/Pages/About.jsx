@@ -12,20 +12,19 @@ export default function About(){
         <>
 
             <Carousel>
-                
-                <Carousel.Item style = {{backgroundColor:'#91c331' }}>
-                    <Image  className= "d-block rectangular-image mx-auto img-responsive img-rounded"src= {picture1} alt="Image One" fluid />
-                    <Carousel.Caption  style = {{color: '#025B4B' }}>
-                        <h3>Who We Are</h3>
-                        <p>We are a menu hosting site to host all your menu lists and more</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
                 <Carousel.Item  style = {{backgroundColor:'#025B4B' }}>
                     <Image  className="d-block rectangular-image mx-auto img-responsive img-rounded" src={picture2} alt="Image Two" fluid />
                     <Carousel.Caption  >
                         <h3>Our Goal</h3>
                         <p>Developing menus and encourage families to
                             have shared experiences around the table</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item style = {{backgroundColor:'#91c331' }}>
+                    <Image  className= "d-block rectangular-image mx-auto img-responsive img-rounded"src= {picture1} alt="Image One" fluid />
+                    <Carousel.Caption  style = {{color: '#025B4B' }}>
+                        <h3>Who We Are</h3>
+                        <p>We are a menu hosting site to host all your menu lists and more</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item  style = {{backgroundColor:'#FDFDEC'  }}>

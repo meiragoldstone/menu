@@ -107,68 +107,58 @@ export default function Update() {
 
     return (
         <>
-        <Container style = {{backgroundImage: `url(${picture})`, backgroundSize: 'cover', 
-        backgroundPosition: 'center',backgroundRepeat: 'no-repeat', height: '550px'}}>
-            <h1 className="text-center mt-4" style = {{color: '#025B4B'}}>Update Menu Items </h1>
-            <div className="d-flex justify-content-center">
-                <Form>
-                    <Form.Select
-                        value={selectedMenu}
-                        onChange={handleMenuChange}
-                    >   <option>Select a Menu</option>
-                        {menus.map((menu, index) => (
-                            <option key={index} value={menu.pk}>
-                                {menu.pk}
-                            </option>
+    <Container style={{ backgroundImage: `url(${picture})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', height: '550px' }}>
+        <h1 className="text-center mt-4" style={{ color: '#025B4B' }}>Update Menu Items</h1>
+        <div className="d-flex justify-content-center">
+            <Form>
+                <Form.Select value={selectedMenu} onChange={handleMenuChange}>
+                    <option>Select a Menu</option>
+                    {menus.map((menu, index) => (
+                        <option key={index} value={menu.pk}>
+                            {menu.pk}
+                        </option>
+                    ))}
+                </Form.Select>
+            </Form>
+        </div>
 
-                        ))}
-                    </Form.Select>
-                </Form>
-            </div>
+        <div className="d-flex justify-content-center mt-3">
+            {!showForm && selectedMenu.menuItems && Object.keys(selectedMenu.menuItems).map((key) => {
+                if (key !== 'pk') { // Exclude the 'pk' property
+                    return (
+                        <Button
+                            className="btn btn-primary mx-2"
+                            onClick={() => toggleForm(selectedMenu.menuItems[key], key)}
+                            variant="info"
+                            key={key}
+                            style={{ backgroundColor: '#025B4B', border: '#025B4B', color: 'white' }}
+                        >
+                            {selectedMenu.menuItems[key]}
+                        </Button>
+                    );
+                }
+                return null;
+            })}
+        </div>
 
-            <div className="d-flex justify-content-center mt-3">
-                {!showForm && selectedMenu.menuItems && Object.keys(selectedMenu.menuItems).map((key) => {
-                     if (key !== 'pk') { // Exclude the 'pk' property
-                        // console.log("key: ", selectedMenu[key]);
-                        console.log(selectedMenu);
-                        console.log("key: " ,key);
-
-                        return (
-                            <Button
-                                className="btn btn-primary mx-2"
-                                onClick={() => toggleForm(selectedMenu.menuItems[key], key)}
-                                variant="info"
-                                key={key}
-                                style = {{backgroundColor: '#025B4B', border: '#025B4B', color: 'white'}}
-                            >
-                                {selectedMenu.menuItems[key]}
-                            </Button>
-
-                        );
-                     }
-                     return null;
-                })}
-            </div>
-
-            {showForm && (
-                <div className='d-flex flex-column align-items-center mt-4'>
-                    <div style={{ width: '50%' }}>
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId='itemUpdate' className="mb-3 text-center">
-                                <Form.Label>Input the updated value</Form.Label>
-                                <Form.Control type="text" placeholder='Enter text' value={textInput} onChange={handleItemChange} />
-
-                            </Form.Group>
-                            <div className='mt-3' style={{ width: '100%' }}>
-                                <Button  style = {{backgroundColor: '#025B4B', border: '#025B4B', color: 'white'}}variant="info" type="submit" className="w-100">Update</Button>
-                            </div>
-                        </Form>
-                    </div>
+        {showForm && (
+            <div className='d-flex flex-column align-items-center mt-4'>
+                <div style={{ width: '50%' }}>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId='itemUpdate' className="mb-3 text-center">
+                            <Form.Label>Input the updated value</Form.Label>
+                            <Form.Control type="text" placeholder='Enter text' value={textInput} onChange={handleItemChange} />
+                        </Form.Group>
+                        <div className='mt-3' style={{ width: '100%' }}>
+                            <Button style={{ backgroundColor: '#025B4B', border: '#025B4B', color: 'white' }} variant="info" type="submit" className="w-100">Update</Button>
+                        </div>
+                    </Form>
                 </div>
-            )};
+            </div>
+        )}
     </Container>
+</>
 
-        </>
 
 
     );

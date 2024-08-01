@@ -64,7 +64,7 @@ const MenuList = () => {
 
             {error && <div className="alert alert-danger">{error}</div>}
             <Form.Group style={{alignItems: 'left'}}>
-                <Form.Label>Your Name</Form.Label>
+                <Form.Label style ={{color: '#025B4B'}}>Your Name</Form.Label>
                 <Form.Control
                     type="text"
                     placeholder="Enter Your Name"
@@ -75,7 +75,7 @@ const MenuList = () => {
             </Form.Group>
             <Form className="mt-4">
                 <Form.Group>
-                    <Form.Label>Menu Name</Form.Label>
+                    <Form.Label style ={{color: '#025B4B'}}>Menu Name</Form.Label>
                     <Form.Control 
                         type="text"
                         placeholder="Enter the Name of Your Menu"
@@ -85,7 +85,7 @@ const MenuList = () => {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Menu Description</Form.Label>
+                    <Form.Label style ={{color: '#025B4B'}}>Menu Description</Form.Label>
                     <Form.Control
                         as="textarea"
                         rows={6}
@@ -96,7 +96,7 @@ const MenuList = () => {
                     />
                 </Form.Group>
 
-                <Button variant="custom" className="btn btn-dark mt-4" onClick={addMenu}>Add Menu</Button>
+                <Button  style={{ backgroundColor: '#025B4B', border: '#025B4B', color: 'white' }}variant="custom" className="btn btn-dark mt-4" onClick={addMenu}>Add Menu</Button>
             </Form>
 
             <ListGroup className="mt-4">
