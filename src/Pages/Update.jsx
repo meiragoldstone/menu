@@ -111,8 +111,8 @@ export default function Update() {
         <h1 className="text-center mt-4" style={{ color: '#025B4B' }}>Update Menu Items</h1>
         <div className="d-flex justify-content-center">
             <Form>
-                <Form.Select value={selectedMenu} onChange={handleMenuChange}>
-                    <option>Select a Menu</option>
+                <Form.Select value={selectedMenu? selectedMenu.pk : ''} onChange={handleMenuChange}>
+                    <option value = "" disabled>Select a Menu</option>
                     {menus.map((menu, index) => (
                         <option key={index} value={menu.pk}>
                             {menu.pk}
